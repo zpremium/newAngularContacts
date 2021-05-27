@@ -58,6 +58,8 @@ input {
 }
 .addContact {
   float: right;
+  margin-top: 43px;
+  margin-right: 50px;
 }
 table{
   background-color: white;
@@ -79,4 +81,16 @@ img {
   height: 75px;
   border-radius: 25% 25%;
   object-fit: cover;
+}
+.black {
+  color: black;
+}
+
+.red {
+  color: red;
+}
+
+.search{
+  width: 300px;
+  margin-right: 100px;
 }

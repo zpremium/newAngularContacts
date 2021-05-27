@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <h2>Favorite</h2>
+  <div class="favos">
+    <div *ngFor="let fav of favorites">
+      <div class="card">
+        <div class="personFavs">
+          <div class="imgFav"><img src="{{ fav.image }}" /></div>
+          <div class="favName">{{ fav.name }}</div>
+        </div>
+
+        <ul>
+          <li><b>{{ fav.phoneNumber }}</b></li>
+          <li class="mail">{{ fav.email }}</li>
+        </ul>
+
+        <div class="buttons">
+          <div>
+            <button (click)="deleteContact(fav)" class="btn btn-outline-danger">
+              <span class="material-icons"> delete </span>
+            </button>
+          </div>
+          <div>
+            <button class="btn btn-outline-warning">
+              <span class="material-icons"> edit </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
