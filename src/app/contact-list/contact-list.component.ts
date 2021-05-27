@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import contactList from '../contacts';
+import  contactList  from '../contacts';
 
 interface Contact {
-  name: String;
-  email: String;
+  name: string;
+  email: string;
   phoneNumber: string;
-  image: String;
+  image: string;
 }
 
 @Component({
@@ -14,17 +14,12 @@ interface Contact {
   styleUrls: ['./contact-list.component.css'],
 })
 export class ContactListComponent implements OnInit {
-  contacts: Object[];
-  newContact: Contact;
+  contacts: Contact[] =contactList;
   error: string | undefined;
+  newContact:Contact = { name: '', email: '', phoneNumber: '', image: '' };
+  constructor() {}
 
-  constructor() {
-    this.newContact = { name: '', email: '', phoneNumber: '', image: '' };
-  }
-
-  ngOnInit() {
-    this.contacts = contactList;
-  }
+  ngOnInit() {}
 
   addContact() {
     // add contact to contacts list
@@ -43,7 +38,7 @@ export class ContactListComponent implements OnInit {
   clearInputs(): void {
     this.newContact = {} as Contact;
   }
-  deleteContact(user: Object[]) {
+  deleteContact(user: Contact) {
     // coge el index del usuario
     let index = this.contacts.indexOf(user);
     if (index > -1) {
