@@ -3,7 +3,7 @@ h2 {
 }
 
 .container-fluid {
-  padding-top: 2%;
+  padding: 2%;
 }
 
 .favos {
@@ -31,6 +31,7 @@ img {
   justify-content: space-around;
   padding: 15px;
   border-radius: 5px;
+  border: yellow solid 2px;
 }
 
 .mail {

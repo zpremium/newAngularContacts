@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import favoriteList from '../favorites';
-import favorites from '../favorites';
 
 interface Favorite {
   name?: string;

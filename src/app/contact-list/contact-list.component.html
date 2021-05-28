@@ -1,106 +1,115 @@
-<a href="#openModal"
-  ><button class="addContact btn btn-outline-primary" style="float: right">
-    Add contact...
-  </button>
-</a>
+<div class="allContainer">
+  <a href="#openModal"
+    ><button class="addContact btn btn-outline-primary" style="float: right">
+      Add contact...
+    </button>
+  </a>
 
-<div id="openModal" class="modalDialog">
-  <div>
-    <a href="#close" title="Close" class="close">X</a>
-    <form>
-      <div>
-        <label for="contact-name">Name:</label>
-        <input
-          class="form-control"
-          type="text"
-          [(ngModel)]="newContact.name"
-          name="name"
-        />
+  <div id="openModal" class="modalDialog">
+    <div>
+      <a href="#close" title="Close" class="close">X</a>
+      <form>
+        <div>
+          <label for="contact-name">Name:</label>
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="newContact.name"
+            name="name"
+          />
 
-        <label for="contact-email">Email:</label>
-        <input
-          class="form-control"
-          type="text"
-          [(ngModel)]="newContact.email"
-          name="email"
-        />
+          <label for="contact-email">Email:</label>
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="newContact.email"
+            name="email"
+          />
 
-        <label for="contact-phone">Phone:</label>
-        <input
-          class="form-control"
-          type="text"
-          [(ngModel)]="newContact.phoneNumber"
-          name="phone"
-        />
+          <label for="contact-phone">Phone:</label>
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="newContact.phoneNumber"
+            name="phone"
+          />
 
-        <label for="contact-image">Image:</label>
-        <input
-          type="file"
-          class="form-control-file"
-          id="exampleFormControlFile1"
-          [(ngModel)]="newContact.image"
-          name="image"
-        />
-      </div>
-    </form>
-    <button (click)="addContact()">Submit New Contact</button>
-    <div *ngIf="error">{{ error }}</div>
+          <label for="contact-image">Image:</label>
+          <input
+            type="file"
+            class="form-control-file"
+            id="exampleFormControlFile1"
+            [(ngModel)]="newContact.image"
+            name="image"
+          />
+        </div>
+      </form>
+      <button (click)="addContact()">Submit New Contact</button>
+      <div *ngIf="error">{{ error }}</div>
+    </div>
   </div>
-</div>
 
-<h2>CONTACT LIST...</h2>
-<div class="input-group mb-3 search">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="basic-addon1"
-      ><span class="material-icons"> person_search </span></span
-    >
+  <h2>Contact List...</h2>
+  <div class="input-group mb-3 search">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1"
+        ><span class="material-icons"> person_search </span></span
+      >
+    </div>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Username"
+      aria-label="Username"
+      aria-describedby="basic-addon1"
+    />
   </div>
-  <input
-    type="text"
-    class="form-control"
-    placeholder="Username"
-    aria-label="Username"
-    aria-describedby="basic-addon1"
-  />
-</div>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col"></th>
-      <th scope="col">Img</th>
-      <th scope="col">Name</th>
-      <th scope="col">Phone Number</th>
-      <th scope="col">Email</th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody *ngFor="let contact of contacts">
-    <tr>
-      <td>
-        <span
-          class="material-icons"
-          (click)="addToSummary(contacts)"
-          [ngClass]="{ black: toggle, red: !toggle }"
-        >
-          favorite
-        </span>
-      </td>
-      <td><img src="{{ contact.image }}" /></td>
-      <td>{{ contact.name }}</td>
-      <td><b>{{ contact.phoneNumber }}</b></td>
-      <td>{{ contact.email | lowercase }}</td>
-      <td>
-        <button (click)="deleteContact(contact)" class="btn btn-outline-danger">
-          <span class="material-icons"> delete </span>
-        </button>
+  <div class="main-table" id="style-7">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Img</th>
+        <th scope="col">Name</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Email</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let contact of contacts">
+      <tr>
+        <td>
+          <span
+            class="material-icons"
+            (click)="addToSummary(contacts)"
+            [ngClass]="{ black: toggle, red: !toggle }"
+          >
+            favorite
+          </span>
+        </td>
+        <td><img src="{{ contact.image }}" /></td>
+        <td>{{ contact.name }}</td>
+        <td>
+          <b>{{ contact.phoneNumber }}</b>
+        </td>
+        <td>{{ contact.email | lowercase }}</td>
+        <td>
+          <button
+            (click)="deleteContact(contact)"
+            class="btn btn-outline-danger"
+          >
+            <span class="material-icons"> delete </span>
+          </button>
 
-        <button (click)="editContact()" class="btn btn-outline-warning">
-          <span class="material-icons"> edit </span>
-        </button>
-        <button (click)="showContact()" class="btn btn-outline-info">
-          <span class="material-icons"> info </span>
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+          <button (click)="editContact()" class="btn btn-outline-warning">
+            <span class="material-icons"> edit </span>
+          </button>
+          <button (click)="showContact()" class="btn btn-outline-info">
+            <span class="material-icons"> info </span>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
